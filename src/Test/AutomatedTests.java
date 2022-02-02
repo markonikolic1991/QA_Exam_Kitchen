@@ -59,6 +59,8 @@ public class AutomatedTests extends BaseTest {
 		Browser.getBrowser().get("http://10.15.1.204:3000/menu");
 		Actions act = new Actions(Browser.getBrowser());
 		
+		Methods.pageScrollDown();
+		
 		Methods.getHeader("Problem 2 Menu");
 		
 		int totalPrice = 0;
@@ -66,27 +68,27 @@ public class AutomatedTests extends BaseTest {
 		Methods.waitingElementIsClickable(kitchen.getMenuPage().getFoodStuffedVealWithPomigrante());
 		kitchen.getMenuPage().getFoodStuffedVealWithPomigrante().click();
 		totalPrice += Integer.parseInt(kitchen.getMenuPage().getPriceStuffedVealWithPomigrante().getText().substring(1));
-		
+
 		Methods.waitingElementIsClickable(kitchen.getMenuPage().getFoodChickenWithParsley());
 		kitchen.getMenuPage().getFoodChickenWithParsley().click();
 		totalPrice += Integer.parseInt(kitchen.getMenuPage().getPriceChickenWithParsley().getText().substring(1));
-		
+
 		Methods.waitingElementIsClickable(kitchen.getMenuPage().getFoodSkeweredPorkWithChives());
 		kitchen.getMenuPage().getFoodSkeweredPorkWithChives().click();
 		totalPrice += Integer.parseInt(kitchen.getMenuPage().getPriceSkeweredPorkWithChives().getText().substring(1));
-		
+
 		Methods.waitingElementIsClickable(kitchen.getMenuPage().getDessertPancakesWithStrawberryCream());
 		kitchen.getMenuPage().getDessertPancakesWithStrawberryCream().click();
 		totalPrice += Integer.parseInt(kitchen.getMenuPage().getPricePancakesWithStrawberryCream().getText().substring(1));
-		
+
 		Methods.waitingElementIsClickable(kitchen.getMenuPage().getDessertMalagaCornetto());
 		kitchen.getMenuPage().getDessertMalagaCornetto().click();
 		totalPrice += Integer.parseInt(kitchen.getMenuPage().getPriceMalagaCornetto().getText().substring(1));
-		
+
 		Methods.waitingElementIsClickable(kitchen.getMenuPage().getDessertStrawberrySudnae());
 		act.doubleClick(kitchen.getMenuPage().getDessertStrawberrySudnae()).perform();
 		totalPrice += 2*Integer.parseInt(kitchen.getMenuPage().getPriceStrawberrySudnae().getText().substring(1));
-		
+
 		int cartPrice = Integer.parseInt(kitchen.getMenuPage().getChartPrice().getText());
 		
 		if(cartPrice == totalPrice) {
