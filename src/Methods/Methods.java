@@ -46,15 +46,22 @@ public class Methods {
 	
 	public static void waitingElementIsClickable (WebElement element) {
 		
-		WebDriverWait wait = new WebDriverWait(Browser.getBrowser(), 15);
+		WebDriverWait wait = new WebDriverWait(Browser.getBrowser(), 30);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		
 	}
 	
 	public static void waitingElementIsVisible (WebElement element) {
 		
-		WebDriverWait wait = new WebDriverWait(Browser.getBrowser(), 15);
+		WebDriverWait wait = new WebDriverWait(Browser.getBrowser(), 30);
 		wait.until(ExpectedConditions.visibilityOf(element));
+		
+	}
+	
+	public static void pageScrollDown () {
+		
+		JavascriptExecutor scroll = (JavascriptExecutor)Browser.getBrowser();
+		scroll.executeScript("window.scrollBy(0,590)");
 		
 	}
 
